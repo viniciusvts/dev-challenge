@@ -4,7 +4,7 @@
 
 O desafio consiste em criar uma API REST que será consumida por um app (Android ou iOS), para obtenção e submissão de atestados do colaborador em um determinado empregador.
 
-O desafio pode ser realizado nas linguagens: Go, Scala, Java, JavaScript(NodeJS), TypeScript(NodeJS) ou Python.
+O desafio pode ser realizado nas linguagens: Go, Scala, Java, JavaScript(NodeJS), TypeScript(NodeJS) ou Python. Qualquer framework pode ser utilizado.
 
 O candidato deve dar **fork** neste repositório e após o termino do desenvolvimento, realizar um **pull request** para análise do time.
 

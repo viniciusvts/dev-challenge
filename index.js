@@ -56,11 +56,14 @@ mongoose.connection.on('connected', ()=>{
 const checkpin = require('./routes/check-pin');
 /** rota employer */
 const employer = require('./routes/employer');
+/** rota submit-medical-license */
+const medicallicense = require('./routes/submit-medical-license');
 const usersRoute = require('./routes/usersRoute');
 
 // app.use( '/', express.static('./www')) //conteúdo estático
 app.use('/check-pin', checkpin);
 app.use('/employer', employer);
+app.use('/submit-medical-license', medicallicense);
 app.use('/users', usersRoute);
 
 app.listen(port, ()=>{

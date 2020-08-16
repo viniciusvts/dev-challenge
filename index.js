@@ -52,11 +52,14 @@ mongoose.connection.on('connected', ()=>{
     });
 })
 
+/** rota checkpin */
+const checkpin = require('./routes/check-pin');
 /** rota employer */
 const employer = require('./routes/employer');
 const usersRoute = require('./routes/usersRoute');
 
 // app.use( '/', express.static('./www')) //conteúdo estático
+app.use('/check-pin', checkpin);
 app.use('/employer', employer);
 app.use('/users', usersRoute);
 

@@ -1,0 +1,60 @@
+version: "3.1"
+networks:
+  intra:
+  
+services:
+  node:
+    container_name: nodeapp
+    volumes:
+      - .:/usr/src/app
+    build: .
+    depends_on:
+      - mongo
+    ports:
+      - "8080"
+    links:
+      - mongo
+    deploy:
+      restart_policy:
+        condition: always
+        delay: 10s
+    networks:
+      intra:
+        aliases:
+          - nodeapp
+  mongo:
+    image: 'mongo'
+    container_name: mongoapp
+    image: mongo
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017"
+    deploy:
+      restart_policy:
+        condition: always
+        delay: 5s
+    networks:
+      intra:
+        aliases:
+          - mongodb
+  nginx:
+    image: nginx:1.13
+    container_name: nginxapp
+    depends_on:
+      - node
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - node
+    deploy:
+      restart_policy:
+        condition: always
+        delay: 5s
+    volumes:
+      - ./nginx:/etc/nginx
+    networks:
+      - intra
+volumes:
+  mongo_data:

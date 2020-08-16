@@ -58,6 +58,7 @@ const checkpin = require('./routes/check-pin');
 const employer = require('./routes/employer');
 /** rota submit-medical-license */
 const medicallicense = require('./routes/submit-medical-license');
+/** rota usuários */
 const usersRoute = require('./routes/usersRoute');
 
 // app.use( '/', express.static('./www')) //conteúdo estático
@@ -69,5 +70,5 @@ app.use('/users', usersRoute);
 app.listen(port, ()=>{
     console.log( "APP: Servidor escutando na porta " + port );
 });
-
+    
 module.exports = app;
